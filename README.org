@@ -1,0 +1,10 @@
+#+title: dwm
+#+author: Pedro Dias
+#+description: Personal fork of DWM
+
+This repository is my personal fork of =dwm= and is not intended for others to
+use, as most of the changes made to the vanilla =dwm= are made with the goal of
+supporting my use cases and goals. Anyone is welcome to try to use this personal
+fork anyway, but I won’t accept any pull requests or suggestions. The only
+external changes to this repository will be the changes coming from the upstream
+master branch.
