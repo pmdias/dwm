@@ -28,10 +28,11 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Places",   NULL,       NULL,       0,            1,           -1 },
-	{ "xfloat",   NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",       NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",    NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "xfloat",     NULL,       NULL,       0,            1,           -1 },
+	{ "Gnuplot",    NULL,       NULL,       0,            1,           -1 },
+	{ "python3.11", NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -61,7 +62,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-l", "10", "-p", "Launch:", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "xterm", NULL };
+static const char *termcmd[]  = { "urxvt", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -84,12 +85,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_Right,  viewnext,       {0} },
-	{ MODKEY,                       XK_Left,   viewprev,       {0} },
+	{ MODKEY,                       XK_period, viewnext,       {0} },
+	{ MODKEY,                       XK_comma,  viewprev,       {0} },
 	{ MODKEY|ShiftMask,             XK_r,      xrdb,           {.v = NULL } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
